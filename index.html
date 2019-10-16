@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--To do: find some flowers that I can sprinkle through the scene, add music, FIND ROBOT SCRAPS. -->
+<!--To do: make the sword change position on click-->
 <html>
 <head>
     <title>aFrame Project</title>
@@ -9,7 +9,7 @@
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
 </head>
 <body>
-    <a-scene>
+    <a-scene fog="type: linear; color: #9deeff; density: 1.5">
         <a-assets>
             <!-- how to import obj files: <a-asset-item id="earth_obj" src="assets/earth.obj"></a-asset-item> <a-asset-itme id="earth_mtl" src="assets/earth.mtl></a-asset-item> use gtlf over obj-->
             <a-asset-item 
@@ -34,11 +34,28 @@
                           src="Assets/Robot/scene.gltf"> <!-- https://skfb.ly/6NESN--> <!-- if mechon doesn't work out, https://skfb.ly/6NESE -->
             </a-asset-item>
             
-            <sound id="title" src="Assets/xenobladetitle.mp3" preload="auto"></sound>
+            <img id="ground" src="Assets/FlatGrass/grass.jpg"> <!-- https://www.textures.com/download/grass0130/38953 -->
+            
+            <a-asset-item
+                          id="flower"
+                          src="Assets/Flower/scene.gltf"> <!-- https://skfb.ly/6NGV6 -->
+            </a-asset-item>
+            
+            <a-asset-item
+                          id="flower1"
+                          src="Assets/Flower1/scene.gltf"> <!-- https://skfb.ly/6NGUW -->
+            </a-asset-item>
+            
+            <a-asset-item
+                          id="flower2"
+                          src="Assets/Flower2/scene.gltf"> <!-- https://skfb.ly/6NG79 -->
+            </a-asset-item>
+            
+            <a-sound id="title" src="Assets/xenobladetitle.mp3" preload="auto"></a-sound>
         </a-assets>
  <!-- if you nest the primitives, that's the same as childing -->
         <!-- textures.com and texturehaven.com to find textures Sketchfab for 3d objects. Figure out how to make textures show up the right color-->
-    <a-entity sound="src: #title"></a-entity>    
+    <a-sound src="src: url(Assets/xenobladetitle.mp3)" autoplay="true" position="0 2 5"></a-sound>   
     <a-entity data-brackets-id="205" gltf-model="#monado" scale="0.4092 0.4092 0.4092" position="-1.20457 0.86401 -1.76703" rotation="-58.559151451345784 -90 90"><a-light></a-light></a-entity> 
         <!-- ctrl+alt+shift+i for inspector -->
         <a-sky src="#sky"></a-sky>
@@ -60,6 +77,26 @@
         <!-- scrap robot -->
         <a-entity id="robot" gltf-model="#robot" scale=".1 .1 .1" rotation="113.86 -15.144 -30.56" position="-4.472 0.611 -4.950"></a-entity>
         <a-entity id="robot" gltf-model="#robot" scale=".1 .1 .1" rotation="64.029 -155 -115.13" position="-3.409 0.611 -4.501"></a-entity>
+        
+        <!-- flowers -->
+        <a-entity data-brackets-id="5512" gltf-model="Assets/Flower/scene.gltf" scale="0.0192 0.0192 0.0192" position="-3.03572 0.3003 -1.62679"></a-entity>
+        <a-entity gltf-model="Assets/Flower/scene.gltf" scale="0.0192 0.0192 0.0192" position="2.03572 0.3003 -3.62679"></a-entity>
+        <a-entity gltf-model="Assets/Flower/scene.gltf" scale="0.0192 0.0192 0.0192" position="-3.03572 0.3003 0"></a-entity>
+        <a-entity gltf-model="Assets/Flower1/scene.gltf" scale="0.0192 0.0192 0.0192" position="3.03572 0.3003 -1.62679"></a-entity>
+        <a-entity gltf-model="Assets/Flower1/scene.gltf" scale="0.0192 0.0192 0.0192" position="0 0.3003 0"></a-entity>
+        <a-entity gltf-model="Assets/Flower2/scene.gltf" scale="0.0192 0.0192 0.0192" position="1.03572 0.3003 -5.62679"></a-entity>
+        <a-entity gltf-model="Assets/Flower2/scene.gltf" scale="0.0192 0.0192 0.0192" position="-1.5 0.3003 0"></a-entity>
+        
+        <a-entity gltf-model="Assets/Flower/scene.gltf" scale="0.0192 0.0192 0.0192" position="-3.03572 0.3003 3.62679"></a-entity>
+        <a-entity gltf-model="Assets/Flower/scene.gltf" scale="0.0192 0.0192 0.0192" position="2.03572 0.3003 0.62679"></a-entity>
+        <a-entity gltf-model="Assets/Flower/scene.gltf" scale="0.0192 0.0192 0.0192" position="-.03572 0.3003 6"></a-entity>
+        <a-entity gltf-model="Assets/Flower1/scene.gltf" scale="0.0192 0.0192 0.0192" position="3.03572 0.3003 2.62679"></a-entity>
+        <a-entity gltf-model="Assets/Flower1/scene.gltf" scale="0.0192 0.0192 0.0192" position="0 0.3003 3"></a-entity>
+        <a-entity gltf-model="Assets/Flower2/scene.gltf" scale="0.0192 0.0192 0.0192" position="1.03572 0.3003 -2.62679"></a-entity>
+        <a-entity gltf-model="Assets/Flower2/scene.gltf" scale="0.0192 0.0192 0.0192" position="2 0.3003 4"></a-entity>
+        
+        <!-- a singular plane -->
+        <a-plane src="#ground" height="100" width="100" rotation="-90 0 0"></a-plane>
         
         <!--a ton of grass-->
         <a-entity data-brackets-id="139" id="grass" gltf-model="#grass" scale="0.01 0.01 0.01" ></a-entity>
